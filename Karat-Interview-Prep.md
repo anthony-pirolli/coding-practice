@@ -1,17 +1,25 @@
-Problem:
+# 💻 Problem: Highest Total Transaction Amount
+
 You are given a list of transactions, where each transaction is represented as a string:
-"<userId>,<amount>"
 
 Write a function that returns the user ID with the highest total transaction amount.
 
-Code
-#input values
+---
+
+## 🧠 Example
+
+**Input**
+
+```python
+["u1,50", "u2,100", "u1,25", "u3,75"]
+
+# input values
 input = ["u1,50", "u2,100", "u1,25", "u3,75"]
 
-#initialize map
+# initialize map
 userMap = {}
 for userId in input:
-split = userId.split(",")
+    split = userId.split(",")
 
     if split[0] not in userMap.keys():
         userMap[split[0]] = int(split[1])
@@ -20,8 +28,8 @@ split = userId.split(",")
 
 sortedUser = sorted(userMap.items(), key=lambda item: item[1], reverse=True)
 
-#Highest User
+# Highest User
 print(sortedUser[0][0])
-Code
+```
 
-This works however, I do need to check to validate input as a transaction could be missing a number or userId etc.
+This will get the right answer but does not take into consideration of any specific input validation, like malformed strings, missing Uids, etc.
